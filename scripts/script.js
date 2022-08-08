@@ -1,5 +1,4 @@
 var countDownDate = new Date("august 28, 2022 08:00:00").getTime();
-
 // Perbarui hitungan mundur setiap 1 detik
 var x = setInterval(function () {
   // Dapatkan tanggal dan waktu hari ini
@@ -24,9 +23,13 @@ var x = setInterval(function () {
   }
 }, 1000);
 
+getUcapan()
+
 var form = document.getElementById("ucapan-form");
+var ucapanBtn = document.getElementById("ucapanBtn")
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  ucapanBtn.innerHTML = "Loading..."
   var nama = document.getElementById('nama').value
   fetch(form.action, {
     method: "POST",
@@ -37,6 +40,27 @@ form.addEventListener("submit", (e) => {
       'Telah memberikan ucapannya!',
       'success'
     )
+    getUcapan()
+    ucapanBtn.innerHTML = "Kirim"
     form.reset()
   });
 });
+
+async function getUcapan() {
+  var cardUcapan = document.getElementById("cardUcapanContainer")
+  let res = await fetch("https://sheetdb.io/api/v1/h8epmcql95drx")
+  let json = await res.json()
+
+  var cardUcapanHtml = ''
+
+  json.reverse().forEach(item => {
+    cardUcapanHtml += `
+      <li class="item">
+        <div class="nama-pengucap">${item.nama}</div>
+        <div class="ucapan">${item.ucapan}</div>
+      </li>
+    `
+  });
+
+  cardUcapan.innerHTML = cardUcapanHtml
+}
