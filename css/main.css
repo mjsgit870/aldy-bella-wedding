@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
 body {
   font-family: "Dosis", sans-serif; }
 
@@ -170,7 +172,7 @@ body {
 
 /* Common Style */
 .ww-title {
-  font-family: "Great Vibes", cursive; }
+  font-family: 'Dancing Script', cursive; }
 
 .ww-section {
   padding: 100px 0; }
