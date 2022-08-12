@@ -86,6 +86,7 @@ function showModalUndangan() {
   undanganModal.show()
   btnBukaUndangan.addEventListener('click', function() {
     undanganModal.hide()
+    bgAudio.volume = 0.3
     bgAudio.play()
   })
 }
