@@ -1,8 +1,8 @@
 window.onload = function() {
+  showModalUndangan()
   setWeddingDate()
   getUcapan()
   ucapanForm()
-  showModalUndangan()
 }
 
 function setWeddingDate() {
@@ -79,6 +79,7 @@ async function getUcapan() {
 function showModalUndangan() {
   var btnBukaUndangan = document.getElementById('btnBukaUndangan')
   var bgAudio = document.getElementById('bgAudio')
+  var content = document.getElementById('content')
   const undanganModal = new bootstrap.Modal(document.getElementById('undanganModal'), {
     keyboard: false,
     backdrop: 'static'
@@ -86,6 +87,7 @@ function showModalUndangan() {
   undanganModal.show()
   btnBukaUndangan.addEventListener('click', function() {
     undanganModal.hide()
+    content.style.display = 'block'
     bgAudio.volume = 0.3
     bgAudio.play()
   })
