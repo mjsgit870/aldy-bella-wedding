@@ -59,7 +59,7 @@ function ucapanForm() {
 
 async function getUcapan() {
   var cardUcapan = document.getElementById("cardUcapanContainer")
-  let res = await fetch("https://sheetdb.io/api/v1/h8epmcql95drx")
+  let res = await fetch("https://sheetdb.io/api/v1/v9g00nsync4dy")
   let json = await res.json()
 
   var cardUcapanHtml = ''
